@@ -24,15 +24,15 @@ loop:
     addi x5, x5, 1      # i++
     j loop
 exit:
-    addi a0, zero, 4
+    addi a0, zero, 4 # print string
     la, a1, dot
     ecall
     addi a0, zero, 1 
     add a1, x0, x6 # print sop
     ecall
     addi a0, zero, 4
-    la, a1, newline
+    la, a1, newline # print newline
     ecall
-    addi a0, zero, 10
+    addi a0, zero, 10 # exit code 0
     addi a1, zero, 0
     ecall
