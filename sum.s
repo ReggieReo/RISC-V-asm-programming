@@ -72,5 +72,5 @@ exit_loop3:
     add a1, x0, x7 # print sum2
     ecall
     addi a0, zero, 10
-    addi a1, zero, 0 # print sum2
+    addi a1, zero, 0 # exit code zero
     ecall
