@@ -12,10 +12,22 @@ main:
     li a2, 5            # size = 5
     mv s0, a0 # move result from a0 to s0
     jal dot_product_recursive
+    mv s1, a0
+
     # print result
-    mv a1, a0
-    addi a0, zero, 1
+
+    addi a0, zero, 4 # print string
+    la, a1, dot
     ecall
+
+    addi a0, zero, 1
+    mv a1, s1
+    ecall
+
+    addi a0, zero, 4 # print string
+    la, a1, newline
+    ecall
+
     # exit cleanly
     addi a0, x0, 10
     addi a1, x0, 0
@@ -59,7 +71,7 @@ dot_product_recursive:
     # compute return result
     # a[0]*b[0] + dot_product_recursive(a+1, b+1, size-1);
     add a0, a0, t3
-    
+
     # load return address and jump
     lw ra, 0(sp)
     addi sp, sp, 4
